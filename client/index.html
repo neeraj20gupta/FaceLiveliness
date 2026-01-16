@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Liveness PoC</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Face Liveness Check</h1>
+      <p class="subtitle">Explainable 3-second liveness detection demo.</p>
+    </header>
+
+    <section class="panel">
+      <div class="video-wrapper">
+        <video id="preview" autoplay playsinline muted></video>
+        <canvas id="captureCanvas" class="hidden"></canvas>
+      </div>
+      <div class="controls">
+        <button id="startBtn">Start Liveness Check</button>
+        <p id="status" class="status">Idle</p>
+      </div>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <h2>Results</h2>
+      <div class="result-summary">
+        <div>
+          <span class="label">Decision</span>
+          <span id="decision" class="value"></span>
+        </div>
+        <div>
+          <span class="label">Risk score</span>
+          <span id="riskScore" class="value"></span>
+        </div>
+        <div>
+          <span class="label">Confidence</span>
+          <span id="confidence" class="value"></span>
+        </div>
+      </div>
+      <div class="signals">
+        <h3>Signals</h3>
+        <ul id="signalsList"></ul>
+      </div>
+      <div class="reasons">
+        <h3>Reasons</h3>
+        <ul id="reasonsList"></ul>
+      </div>
+      <div class="frames">
+        <h3>Annotated Frames</h3>
+        <div id="annotatedFrames" class="frame-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
